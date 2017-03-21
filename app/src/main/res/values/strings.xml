@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Eoins Panic Button</string>
+
+    <string name="forgot_password"><b> <u>Forgotten Password</u> </b></string>
+    <string name="already_registered"><b> <u>Already Registered? Sign in here</u> </b></string>
+
+</resources>

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "370864495483",
+    "firebase_url": "https://panicbutton-a6dc5.firebaseio.com",
+    "project_id": "panicbutton-a6dc5",
+    "storage_bucket": "panicbutton-a6dc5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:370864495483:android:fd3d07742dc65ba9",
+        "android_client_info": {
+          "package_name": "com.example.eoin.panicbutton2017"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "370864495483-cih2fp813a9udk9ck0gshkrdjhkh8f0u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDg8nhM5Pq5bu8vpmzdwcCyUxDz6zvcwXs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
