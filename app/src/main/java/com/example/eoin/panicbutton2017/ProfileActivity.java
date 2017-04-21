@@ -29,6 +29,12 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     //firebase auth object
     private FirebaseAuth firebaseAuth;
 
+    //defining a database reference
+    private DatabaseReference databaseReference;
+
+
+
+
     private Button buttonShoot;
     private Button buttonLogout;
     private Button buttonChatRoom;
@@ -36,14 +42,22 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private Button buttonWebsite;
     private Button buttonMap;
 
+    double UsersLat = 54.566466;
+    double UsersLong = -5.947459;
 
-    String messageToSend = "Shooter on Campus"; //+ GPS
+    String messageText = "Shooter on campus, my location is: \n";
+
+    //String usersName = user.getDisplayName();
+    String usersName = "Users+actual+name";
+
+  String messageToSend = "Shooter on campus, my name is " + usersName + ", my location is: \nhttp://maps.google.com/maps?q="+UsersLat+","+UsersLong+"("+usersName+")&z=14&ll="+UsersLat+","+UsersLong;
     String number = "07548136364";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
 
 
 
@@ -74,6 +88,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         buttonMap.setOnClickListener(this);
 
 
+
         buttonShoot.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -83,7 +98,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 //Toast
                Toast.makeText(getBaseContext(), "Support Alerted", Toast.LENGTH_SHORT).show();
 
-                //Text
+
+
+             //Text
                 SmsManager.getDefault().sendTextMessage(number, null, messageToSend, null, null);
 
                 NotificationManager notif=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
@@ -98,8 +115,6 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 notif.notify(0, notify);
 
 
-
-                /*
                 // instantiate the location manager, note you will need to request permissions in your manifest
                 LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
                 // get the last know location from your location manager.
@@ -107,14 +122,12 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 // now get the lat/lon from the location and do something with it.
                 //   nowDoSomethingWith(location.getLatitude(), location.getLongitude());
 
-
-
-                Toast.makeText(getBaseContext(),"Location changed : Lat: " +
-                                location.getLatitude()+ " Lng: " + location.getLongitude(),
-                        Toast.LENGTH_SHORT).show();*/
                 return false;
+
+
             }
         });
+
 
         buttonNonemergency.setOnLongClickListener(new View.OnLongClickListener() {
             @Override

@@ -73,7 +73,8 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
 
         //adding listener to button
         buttonLogout.setOnClickListener(this);
-        buttonSave.setOnClickListener(this); }
+        buttonSave.setOnClickListener(this);
+    }
 
 
     private void saveUserInformation() {
@@ -81,6 +82,10 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
         String name = editTextName.getText().toString().trim();
         String add = editTextAddress.getText().toString().trim();
         String num = editTextNumber.getText().toString().trim();
+
+        Intent intent = new Intent(DetailsActivity.this, ProfileActivity.class);
+        intent.putExtra("message", "bleh");
+        startActivity(intent);
 
 
         //creating a userinformation object
