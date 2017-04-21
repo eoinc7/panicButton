@@ -10,17 +10,51 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_alignParentTop="true">
 
         <Button
+            android:id="@+id/buttonShoot"
             android:layout_width="wrap_content"
             android:layout_height="103dp"
-            android:text="Active Shooter"
-            android:id="@+id/buttonShoot"
-            android:background = "@drawable/roundbutton"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/roundbutton"
+            android:text="Active Shooter" />
+
+        <Button
+            android:id="@+id/buttonNonemergency"
+            android:layout_width="wrap_content"
+            android:layout_height="103dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/non_emergency_button"
+            android:text="Non-Emergency" />
+
+        <Button
+            android:id="@+id/buttonChatRoom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:text="Chat Room" />
+        <Button
+            android:id="@+id/buttonMap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:text="Maps" />
+
+        <Button
+            android:id="@+id/buttonWebsite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:text="Shooter Situation Advice" />
+
     </LinearLayout>
 
     <Button

@@ -52,13 +52,13 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="User Registration"
+        android:textColor="@color/colorBlue"
         android:id="@+id/textView"
         android:layout_above="@+id/linearLayout2"
         android:layout_centerHorizontal="true" />
 
     <TextView
     android:textAlignment="center"
-    android:textStyle="bold|italic"
     android:text="@string/forgot_password"
     android:textColor="@color/colorBlue"
     android:id="@+id/btnResetPassword"

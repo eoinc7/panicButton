@@ -1,7 +1,12 @@
 <resources>
     <string name="app_name">Eoins Panic Button</string>
 
-    <string name="forgot_password"><b> <u>Forgotten Password</u> </b></string>
-    <string name="already_registered"><b> <u>Already Registered? Sign in here</u> </b></string>
+    <string name="forgot_password"><i><b> <u>Forgotten Password</u> </b></i></string>
+    <string name="already_registered"><b> Already Registered? <u> Sign in here</u> </b></string>
+    <string name="not_registered"><b> Not Registered? <u> Sign up here</u> </b></string>
+
+    <string name="reset_password"><b>Reset Password</b></string>
+    <string name="reset_instructions">We just need your registered Email Address to send you password reset instructions.</string>
+    <string name="title_activity_maps">Map</string>
 
 </resources>

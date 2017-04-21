@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.telephony.SmsManager;
@@ -20,6 +21,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
 
     //firebase auth object
@@ -27,6 +31,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
     private Button buttonShoot;
     private Button buttonLogout;
+    private Button buttonChatRoom;
+    private Button buttonNonemergency;
+    private Button buttonWebsite;
+    private Button buttonMap;
 
 
     String messageToSend = "Shooter on Campus"; //+ GPS
@@ -36,6 +44,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+
 
         //initializing firebase authentication object
         firebaseAuth = FirebaseAuth.getInstance();
@@ -51,9 +61,18 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         }
 
         buttonShoot = (Button) findViewById(R.id.buttonShoot);
-        buttonLogout  = (Button) findViewById(R.id.buttonLogout);
+        buttonLogout = (Button) findViewById(R.id.buttonLogout);
+        buttonChatRoom = (Button) findViewById(R.id.buttonChatRoom);
+       buttonNonemergency = (Button) findViewById(R.id.buttonNonemergency);
+        buttonWebsite = (Button) findViewById(R.id.buttonWebsite);
+        buttonMap = (Button) findViewById(R.id.buttonMap);
 
         buttonLogout.setOnClickListener(this);
+        buttonChatRoom.setOnClickListener(this);
+        buttonNonemergency.setOnClickListener(this);
+        buttonWebsite.setOnClickListener(this);
+        buttonMap.setOnClickListener(this);
+
 
         buttonShoot.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
@@ -66,6 +85,19 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
                 //Text
                 SmsManager.getDefault().sendTextMessage(number, null, messageToSend, null, null);
+
+                NotificationManager notif=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+                Notification notify=new Notification.Builder
+                        (getApplicationContext()).setContentTitle("").setContentText("Find a safe location").
+                        setContentTitle("SHOOTER ON CAMPUS").setSmallIcon(R.drawable.roundbutton).build();
+
+                notify.flags |= Notification.FLAG_AUTO_CANCEL;
+
+                //Vibrate
+                notify.vibrate = new long[]{100, 200, 100, 500};
+                notif.notify(0, notify);
+
+
 
                 /*
                 // instantiate the location manager, note you will need to request permissions in your manifest
@@ -83,8 +115,26 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 return false;
             }
         });
-        }
 
+        buttonNonemergency.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+// TODO Auto-generated method stub
+
+                //Toast
+                Toast.makeText(getBaseContext(), "Calling Non-Emergency Support", Toast.LENGTH_SHORT).show();
+
+                //Call support
+                String url = "tel:07548136364";
+                Intent callIntent = new Intent(Intent.ACTION_CALL, Uri
+                        .parse(url));
+                startActivity(callIntent);
+
+                return false;
+            }
+        });
+
+        }
 
 
     @Override
@@ -97,6 +147,22 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             finish();
             //starting login activity
             startActivity(new Intent(this, LoginActivity.class));
+        }
+        if (view == buttonChatRoom) {
+            //starting chat activity
+            startActivity(new Intent(this, ChatRoomActivity.class));
+        }
+
+        if (view == buttonMap) {
+            //starting chat activity
+            startActivity(new Intent(this, MapsActivity.class));
+        }
+
+        if (view == buttonWebsite) {
+            //starting website activity
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri
+                    .parse("http://www.wikihow.com/Survive-a-School-or-Workplace-Shooting"));
+            startActivity(intent);
         }
 
     }

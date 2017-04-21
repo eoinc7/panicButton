@@ -83,6 +83,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
 
+        //if the password is too short
+
+        if (password.length() < 6) {
+            Toast.makeText(getApplicationContext(), "Password too short, enter minimum 6 characters!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         //if the email and password are not empty
         //displaying a progress dialog
 

@@ -33,14 +33,14 @@
 
         <Button
             android:layout_margin="15dp"
-            android:id="@+id/buttonSignIn"
+            android:id="@+id/buttonSignin"
             android:text="Sign In"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <TextView
             android:textAlignment="center"
-            android:text="@string/already_registered"
+            android:text="@string/not_registered"
             android:id="@+id/textViewSignUp"
             android:textColor="@color/colorBlue"
             android:layout_width="match_parent"
@@ -53,6 +53,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="User Login"
+        android:textColor="@color/colorBlue"
         android:id="@+id/textView"
         android:layout_above="@+id/linearLayout"
         android:layout_centerHorizontal="true" />

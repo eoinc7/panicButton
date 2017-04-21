@@ -31,7 +31,7 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
     private DatabaseReference databaseReference;
 
     //our new views
-    private EditText editTextName, editTextAddress;
+    private EditText editTextName, editTextAddress, editTextNumber;
     private Button buttonSave;
 
     @Override
@@ -58,6 +58,7 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
         //getting the views from xml resource
         editTextAddress = (EditText) findViewById(R.id.editTextAddress);
         editTextName = (EditText) findViewById(R.id.editTextName);
+        editTextNumber = (EditText) findViewById(R.id.editTextNumber);
         buttonSave = (Button) findViewById(R.id.buttonSave);
 
 
@@ -79,9 +80,11 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
         //Getting values from database
         String name = editTextName.getText().toString().trim();
         String add = editTextAddress.getText().toString().trim();
+        String num = editTextNumber.getText().toString().trim();
+
 
         //creating a userinformation object
-        UserInformation userInformation = new UserInformation(name, add);
+        UserInformation userInformation = new UserInformation(name, add, num);
 
         //getting the current logged in user
         FirebaseUser user = firebaseAuth.getCurrentUser();
@@ -107,7 +110,7 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
 
         if(view == buttonSave){
             saveUserInformation();
-                startActivity(new Intent(this, ProfileActivity.class));
+            startActivity(new Intent(this, ProfileActivity.class));
             }
         }
 
