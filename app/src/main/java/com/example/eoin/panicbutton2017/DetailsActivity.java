@@ -90,8 +90,9 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
         //getting the current logged in user
         FirebaseUser user = firebaseAuth.getCurrentUser();
 
-
-        databaseReference.child(user.getUid()).setValue(userInformation);
+        databaseReference.child(user.getUid()).child("Name").setValue(name);
+        databaseReference.child(user.getUid()).child("Phone Number").setValue(num);
+        databaseReference.child(user.getUid()).child("Address").setValue(add);
 
         //displaying a success toast
         Toast.makeText(this, "Information Saved...", Toast.LENGTH_LONG).show();
