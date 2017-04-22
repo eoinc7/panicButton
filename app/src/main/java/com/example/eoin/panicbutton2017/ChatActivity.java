@@ -1,5 +1,7 @@
 package com.example.eoin.panicbutton2017;
 
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -18,10 +20,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-
-
-import android.app.Notification;
-import android.app.NotificationManager;
 
 public class ChatActivity  extends AppCompatActivity{
 

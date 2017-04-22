@@ -2,9 +2,9 @@ package com.example.eoin.panicbutton2017;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -44,7 +44,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         //if the objects getcurrentuser method is not null
         //means user is already logged in
-        if(firebaseAuth.getCurrentUser() != null){
+        if (firebaseAuth.getCurrentUser() != null) {
             //close this activity
             finish();
             //opening profile activity
@@ -55,7 +55,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
         buttonSignIn = (Button) findViewById(R.id.buttonSignin);
-        textViewSignup  = (TextView) findViewById(R.id.textViewSignUp);
+        textViewSignup = (TextView) findViewById(R.id.textViewSignUp);
         btnResetPassword = (TextView) findViewById(R.id.btnResetPassword);
 
         progressDialog = new ProgressDialog(this);
@@ -67,19 +67,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     //method for user login
-    private void userLogin(){
+    private void userLogin() {
         String email = editTextEmail.getText().toString().trim();
-        String password  = editTextPassword.getText().toString().trim();
+        String password = editTextPassword.getText().toString().trim();
 
 
         //checking if email and passwords are empty
-        if(TextUtils.isEmpty(email)){
-            Toast.makeText(this,"Please enter email",Toast.LENGTH_LONG).show();
+        if (TextUtils.isEmpty(email)) {
+            Toast.makeText(this, "Please enter email", Toast.LENGTH_LONG).show();
             return;
         }
 
-        if(TextUtils.isEmpty(password)){
-            Toast.makeText(this,"Please enter password",Toast.LENGTH_LONG).show();
+        if (TextUtils.isEmpty(password)) {
+            Toast.makeText(this, "Please enter password", Toast.LENGTH_LONG).show();
             return;
         }
 
@@ -100,26 +100,25 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             //start the profile activity
                             finish();
                             startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
-                        }else{
+                        } else {
                             //display some message here
-                            Toast.makeText(LoginActivity.this,"Login Error",Toast.LENGTH_LONG).show();
+                            Toast.makeText(LoginActivity.this, "Login Error", Toast.LENGTH_LONG).show();
                         }
                     }
                 });
-
     }
 
     @Override
     public void onClick(View view) {
-        if(view == buttonSignIn){
+        if (view == buttonSignIn) {
             userLogin();
         }
 
-        if(view == textViewSignup){
+        if (view == textViewSignup) {
             finish();
             startActivity(new Intent(this, MainActivity.class));
         }
-        if(view == btnResetPassword){
+        if (view == btnResetPassword) {
             //open reset activity
             startActivity(new Intent(this, ResetPasswordActivity.class));
         }
